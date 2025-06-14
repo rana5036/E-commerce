@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col">
+            <h1 style="color: rgb(87, 136, 215);">اهلاً بكم في المتجر </h1>
+            <small>    مرحباً بكم في المتجر, نقدم لكم مجموعة متنوعة من الأثاث والاجهزة المنزلية الأساسية بأسعار معقولة وجودة عاليةويمكنكم الآن من خلال المتجر شراء كل ماتحتاجونة بكل سهولة ويسر</small>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center mt-5">
+        {% for item in catgories %}
+        <div class="col-6 mb-3">
+            <a href="{% url 'list_product' id=item.id %}"> 
+                <div class="card" style="width: 500px;">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="card-title">{{item.name}}</h5>
+                            </div>
+                            <div class="col">
+                                <i class="{{item.icon}}" arial-hidden="true" style="font-size: 70px;"></i>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+
+            </a>
+           
+
+        </div>
+        {% endfor %}
+
+    </div>
+   
+</div>
+
+
+
+{% endblock %}
